@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "job_postings",
+  "info": {
+    "singularName": "job-posting",
+    "pluralName": "job-postings",
+    "displayName": "job posting",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "required": true,
+      "targetField": "title"
+    },
+    "description": {
+      "type": "blocks",
+      "required": true
+    },
+    "location": {
+      "type": "string",
+      "required": true
+    },
+    "employment_type": {
+      "type": "enumeration",
+      "enum": [
+        "Full-time",
+        "Part-time",
+        "Contract"
+      ],
+      "required": true
+    },
+    "posted_date": {
+      "type": "date",
+      "required": true
+    },
+    "is_open": {
+      "type": "boolean",
+      "required": true
+    },
+    "applications": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::application.application",
+      "mappedBy": "job"
+    }
+  }
+}

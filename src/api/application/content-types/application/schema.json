@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "applications",
+  "info": {
+    "singularName": "application",
+    "pluralName": "applications",
+    "displayName": "Application"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "full_name": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "phone": {
+      "type": "string",
+      "required": false
+    },
+    "resume": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "applied_date": {
+      "type": "date",
+      "required": true
+    },
+    "job": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::job-posting.job-posting",
+      "inversedBy": "applications"
+    }
+  }
+}
