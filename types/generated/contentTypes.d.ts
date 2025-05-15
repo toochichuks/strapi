@@ -390,6 +390,7 @@ export interface ApiApplicationApplication extends Struct.CollectionTypeSchema {
     email_sent: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     full_name: Schema.Attribute.String & Schema.Attribute.Required;
     job: Schema.Attribute.Relation<'manyToOne', 'api::job-posting.job-posting'>;
+    linkedin_url: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -397,6 +398,7 @@ export interface ApiApplicationApplication extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     phone: Schema.Attribute.String;
+    portfolio_url: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     resume: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
       Schema.Attribute.Required;

@@ -50,6 +50,12 @@
     "email_sent": {
       "type": "boolean",
       "default": false
+    },
+    "linkedin_url": {
+      "type": "string"
+    },
+    "portfolio_url": {
+      "type": "string"
     }
   }
 }
