@@ -4,7 +4,8 @@
   "info": {
     "singularName": "application",
     "pluralName": "applications",
-    "displayName": "Application"
+    "displayName": "Application",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -23,15 +24,15 @@
       "required": false
     },
     "resume": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false,
-      "required": true
+      ]
     },
     "applied_date": {
       "type": "date",
@@ -42,6 +43,13 @@
       "relation": "manyToOne",
       "target": "api::job-posting.job-posting",
       "inversedBy": "applications"
+    },
+    "cover_letter": {
+      "type": "text"
+    },
+    "email_sent": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

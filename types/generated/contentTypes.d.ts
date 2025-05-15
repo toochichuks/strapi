@@ -372,6 +372,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiApplicationApplication extends Struct.CollectionTypeSchema {
   collectionName: 'applications';
   info: {
+    description: '';
     displayName: 'Application';
     pluralName: 'applications';
     singularName: 'application';
@@ -381,10 +382,12 @@ export interface ApiApplicationApplication extends Struct.CollectionTypeSchema {
   };
   attributes: {
     applied_date: Schema.Attribute.Date & Schema.Attribute.Required;
+    cover_letter: Schema.Attribute.Text;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     email: Schema.Attribute.Email & Schema.Attribute.Required;
+    email_sent: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     full_name: Schema.Attribute.String & Schema.Attribute.Required;
     job: Schema.Attribute.Relation<'manyToOne', 'api::job-posting.job-posting'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -422,7 +425,7 @@ export interface ApiJobPostingJobPosting extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    description: Schema.Attribute.RichText & Schema.Attribute.Required;
     employment_type: Schema.Attribute.Enumeration<
       ['Full-time', 'Part-time', 'Contract']
     > &
